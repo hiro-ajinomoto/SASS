@@ -1,0 +1,92 @@
+.card {
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	height: 50rem; // because the position cause things collapse, so the height of the card  = 0, so we fix that by setting the height same as the height of the card__side/ can't use the clear-fix trick here
+	// if the height of the card =  0, the perspective effect will be cancelled
+
+	position: relative;
+
+	&__side {
+		height: 50rem;
+		// color: $color-white;
+		// font-size: 2rem;
+		height: 50rem;
+		transition: all 0.8s ease;
+		width: 100%;
+
+		overflow: hidden;
+		border-radius: 3px;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+		position: absolute;
+
+		top: 0;
+		left: 0;
+
+		backface-visibility: hidden; //*
+
+		&--front {
+			background-color: orangered;
+		}
+
+		&--back {
+			transform: rotateY(-180deg); // chú ý
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+			}
+		}
+	}
+
+	&:hover &__side--front {
+		transform: rotateY(180deg);
+	}
+
+	&:hover &__side--back {
+		transform: rotateY(0); // the deg of rotate decided the direction of the card
+	}
+
+	//FRONTS SIDE STYLING
+
+	&__picture {
+		background-size: cover;
+		height: 23rem;
+		background-blend-mode: screen; // nếu không bật chế độ này lên thì sẽ không thấy được background
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+		&--1 {
+			background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+				url("../../img/nat-5.jpg");
+		}
+		&--2 {
+			background-image: url("../../img/nat-5.jpg");
+		}
+
+		&--3 {
+			background-image: url("../../img/nat-5.jpg");
+		}
+	}
+
+	&__heading {
+		font-size: 2.5rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		color: $color-white;
+		text-align: right;
+
+		position: absolute;
+		top: 12rem;
+		right: 2rem;
+		width: 75%;
+	}
+
+	&__heading-span {
+		padding: 1rem 1.5rem;
+		&--1 {
+			background-image: linear-gradient(
+				to right bottom,
+				rgba($color-secondary-light, 0.85),
+				rgba($color-secondary-dark, 0.85)
+			);
+		}
+	}
+}

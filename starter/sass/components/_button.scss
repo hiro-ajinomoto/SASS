@@ -1,0 +1,82 @@
+.btn {
+	&:link,
+	&:visited {
+		text-decoration: none;
+		text-transform: uppercase;
+		padding: 1.5rem 4rem;
+		display: inline-block;
+		border-radius: 10rem;
+
+		transition: all 0.2s;
+		position: relative;
+		font-size: $default-font-size;
+	}
+	&:hover {
+		transform: translateY(-0.3rem);
+		box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+		&::after {
+			/* Khi hover button thì cái after (child) của nó sẽ phóng bự ra */
+			transform: scaleX(1.4) scaleY(1.6);
+			opacity: 0;
+			/* chính vì cái opacity này bằng 0, nên lúc di chuột ra sẽ có cảm giác là nó đang thu nhỏ lại */
+		}
+	}
+
+	&:active {
+		transform: translateY(-1px);
+		box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+	}
+
+	&--white {
+		background-color: $color-white;
+		color: $color-grey-dark;
+	}
+
+	&::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		display: inline-block;
+		border-radius: 10rem;
+		position: absolute;
+		/*from btn:link,
+	  .btn:visited  */
+		top: 0;
+		left: 0;
+		z-index: -1;
+		transition: all 0.4s;
+	}
+
+	&--white::after {
+		background-color: $color-white;
+	}
+
+	&--animated {
+		animation: moveInBottom 2s ease-out 0.75s;
+		animation-fill-mode: backwards;
+	}
+}
+
+.btn-text {
+	&:link,
+	&:visited {
+		font-size: $default-font-size;
+		color: $color-primary;
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid $color-primary; // this is too small to use rem unit to the border width
+		padding: 3px; // this is too small for use ing rem unit
+		transition: all 0.5s ease-in-out;
+	}
+
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+		box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+		transform: translateY(-2px);
+	}
+
+	&:active {
+	}
+}

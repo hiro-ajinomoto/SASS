@@ -1,0 +1,25 @@
+html {
+	/* font-size: 10px; */
+	// define 1 rem should be
+	font-size: 62.5%;
+	/* setting the root font-size */
+	/*the default font size is 16px (by the browser) so we use the calculator to calculate the percentage that we want  */
+}
+
+body {
+	// font-family: "Lato", "Helvetica Neue", Sans-serif;
+	// font-weight: 400;
+	// line-height: 1.7;
+	// color: $color-grey-dark;
+	// padding: 3rem;
+	box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	/* box-sizing: border-box; */
+	box-sizing: inherit;
+}
